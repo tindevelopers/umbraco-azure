@@ -2,6 +2,21 @@
 
 Umbraco CMS site with Delivery API enabled, deployed to Azure App Service.
 
+## Live Azure installation
+
+| Resource | Details |
+|----------|---------|
+| **Site** | https://umbraco-site-app.azurewebsites.net |
+| **Backoffice** | https://umbraco-site-app.azurewebsites.net/umbraco |
+| **Delivery API** | https://umbraco-site-app.azurewebsites.net/umbraco/delivery/api/v2/content |
+| **Resource group** | `umbraco-rg` (East US) |
+| **App Service** | `umbraco-site-app` |
+
+**Azure Portal**
+
+- [Open Web App in Azure Portal](https://portal.azure.com/#resource/subscriptions/d56a2de1-25e4-476d-bf60-13482be8f0cb/resourceGroups/umbraco-rg/providers/Microsoft.Web/sites/umbraco-site-app)
+- [Open Resource Group](https://portal.azure.com/#resource/subscriptions/d56a2de1-25e4-476d-bf60-13482be8f0cb/resourceGroups/umbraco-rg)
+
 ## Important: How This Project Gets Updates
 
 This project was created from the [Umbraco .NET templates](https://docs.umbraco.com/umbraco-cms/fundamentals/setup/install/install-umbraco-with-templates) (`dotnet new umbraco`). It is **not** a fork of the [Umbraco-CMS](https://github.com/umbraco/Umbraco-CMS) repository. The core CMS is consumed as **NuGet packages** (e.g. `Umbraco.Cms`).
@@ -45,10 +60,10 @@ Do **not** try to merge from the `umbraco/Umbraco-CMS` GitHub repo into this sol
 
 ## Deployment
 
-- **Azure:** App Service + Azure SQL; connection string is configured in the App Service. Publish with `dotnet publish -c Release` and deploy the output (e.g. zip deploy or GitHub Actions).
+- **Azure:** App Service + Azure SQL in resource group `umbraco-rg`; connection string is configured in the App Service. Publish with `dotnet publish -c Release` and deploy the output (e.g. `az webapp deploy` zip deploy or GitHub Actions).
 
 ## Delivery API
 
 The Delivery API is enabled in `appsettings.json`. After the site is installed, content is available at:
 
-- `https://<your-site>/umbraco/delivery/api/v2/content`
+- **Live:** https://umbraco-site-app.azurewebsites.net/umbraco/delivery/api/v2/content
